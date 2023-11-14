@@ -1,6 +1,6 @@
 const { Client, IntentsBitField, Collection } = require('discord.js');
 const client = new Client({
-    intents: new IntentsBitField(3276799)
+    intents: new IntentsBitField(3276799),
 })
 const loadEvents = require("./interfaces/IEvents");
 const loadCommands = require("./interfaces/ICommand");
