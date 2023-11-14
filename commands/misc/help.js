@@ -7,7 +7,7 @@ module.exports = {
 
     inDevelopment: true,
 
-    async run(interaction, client) {
+    async run(Discord, interaction) {
         
         let helpEmbed = new EmbedBuilder()
             .setTitle("Command Information")
