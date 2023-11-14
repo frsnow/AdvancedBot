@@ -1,3 +1,4 @@
+const Discord = require('discord.js');
 const { readdirSync } = require('fs');
 
 module.exports = async client => {
