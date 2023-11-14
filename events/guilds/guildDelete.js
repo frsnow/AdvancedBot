@@ -5,7 +5,7 @@ const config = require("../../utils/config");
 module.exports = {
     name: Events.GuildDelete,
 
-    async run (client, guild) {
+    run: (client, guild) => {
         console.log(`[LOGS] `.blue + `Left a guild: ${guild.name}`.grey + ` have ${guild.memberCount} members (${guild.id})`.grey);
         console.log(`[UPDATE]`.yellow + ` Updating server count channel (${client.guilds.cache.size})`.grey)
         updateChannelStats(client);

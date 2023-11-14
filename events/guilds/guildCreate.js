@@ -4,7 +4,7 @@ const updateChannelStats = require("../../utils/functions/updateStats");
 module.exports = {
     name: Events.GuildCreate,
 
-    async run (client, guild) {
+    run: (client, guild) => {
         console.log(`[LOGS] `.blue + `Joined a new guild: ${guild.name}`.grey + ` have ${guild.memberCount} members (${guild.id})`.grey);
         console.log(`[UPDATE]`.yellow + ` Updating server count channel (${client.guilds.cache.size})`.grey)
         updateChannelStats(client);
