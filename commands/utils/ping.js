@@ -7,8 +7,9 @@ module.exports = {
         .setDMPermission(true),
 
     inDevelopment: false,
+    developerCommand: false,
 
-    async run (interaction) {
+    async run (Discord, interaction) {
         await interaction.reply("The bot have a ping of " + interaction.client.ws.ping + "ms!");
     }
 }
