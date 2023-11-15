@@ -7,6 +7,7 @@ const loadCommands = require("./interfaces/ICommand");
 require('dotenv').config();
 
 client.commands = new Collection();
+// client.subCommands = new Collection();
 
 (async () => {
     await loadEvents(client);
