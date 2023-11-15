@@ -1,25 +1,27 @@
-require("colors");
-const { Events, ActivityType } = require("discord.js");
 const updateChannelStats = require("../../utils/functions/updateStats");
-const createData = require("../../utils/structure/database");
 const config = require("../../utils/config");
+require("colors");
 
 module.exports = {
-    name: Events.ClientReady,
-    async run (client) {
-
+    name: (Events) => {
+        return Events.ClientReady;
+    },
+    run: async (Discord, client) => {
         await client.application.commands.set(client.commands.map(command => command.data));
-        let activies = [
-            `${client.guilds.cache.size} servers`,
-            `${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0)} users`
-        ];
-        let randomActivity = activies[Math.floor(Math.random() * activies.length)];
+        const messageReady = `Client is ready on version ${config.Version}. Server count: ${client.guilds.cache.size} & User count: ${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0)}`.grey;
+        let activities = [
+            `${client.guilds.cache.size} servers!`,
+            `${client.channels.cache.size} channels!`,
+            `${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0)} users!`,
+            `AdvancedBot Ready`,
+        ]
 
         setInterval(() => {
-            client.user.setActivity(randomActivity, { type: ActivityType.Watching });
-            updateChannelStats(client);
-        }, 10000);
-
-        createData(client);
+            let random = Math.floor(Math.random() * activities.length);
+            client.user.setActivity(activities[random], { type: Discord.ActivityType.Watching });
+        }, 5000)
+        console.log("-".repeat(messageReady.length).grey)
+        console.log("[LOGS] ".blue +messageReady);
+        updateChannelStats(client);
     }
 }
