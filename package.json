@@ -2,6 +2,8 @@
   "dependencies": {
     "colors": "^1.4.0",
     "discord.js": "^14.14.0",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "mysql2": "^3.6.3",
+    "reddit-image-fetcher": "^2.0.12"
   }
 }
