@@ -13,7 +13,7 @@ module.exports = {
         console.log(`[UPDATE]`.yellow + ` Updating server count channel (${client.guilds.cache.size})`.grey)
         updateChannelStats(client);
 
-        let channel = client.channels.cache.get(config.Main_GuildChannel.ChannelGuildAdd);
+        let channel = client.channels.cache.get(config.Main_Guild.ChannelLogs.ChannelGuildAdd);
         if (!channel) return;
         let owner;
         try {

@@ -14,7 +14,7 @@ module.exports = {
         updateChannelStats(client);
 
 
-        let channel = client.channels.cache.get(config.Main_GuildChannel.ChannelGuildRemove);
+        let channel = client.channels.cache.get(config.Main_Guild.ChannelLogs.ChannelGuildRemove);
         if (!channel) return;
 
         let embed = new EmbedBuilder()
