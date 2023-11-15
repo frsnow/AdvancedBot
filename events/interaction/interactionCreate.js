@@ -1,25 +1,34 @@
-const { Events, InteractionType } = require("discord.js");
+const Discord = require("discord.js");
+const config = require("../../utils/config");
 
 module.exports = {
-    name: Events.InteractionCreate,
+    name: (Events) => {
+        return Events.InteractionCreate;
+    },
 
-    run (client, interaction) {
-        if (interaction.type === InteractionType.ApplicationCommand) {
+    run: (Discord, client, interaction) => {
+        let allDevelopers;
+        if (interaction.type === Discord.InteractionType.ApplicationCommand) {
             const command = client.commands.get(interaction.commandName);
             if (command) {
-                if (command.inDevelopment) {
-                    if (interaction.user.id === "1023706648193290292") {
-                        command.run(interaction);
-                        console.log(`Command ${interaction.commandName} executed (by ${interaction.user.tag}(${interaction.user.id})) in development mode`.red);
-                    } else {
-                        interaction.reply({ content: "This command is in development", ephemeral: true });
+                for (let i = 0; i < config.MainDeveloper.length; i++) {
+                    if (interaction.user.id === config.MainDeveloper[i]) {
+                        allDevelopers = config.MainDeveloper[i];
                     }
+                }
+                
+                if (command.inDevelopment && interaction.user.id !== allDevelopers) {
+                    interaction.reply({ content: "This command is in development", ephemeral: true });
+                    console.log(`Command ${interaction.commandName} is in development`);
+                } else if (command.developerCommand && interaction.user.id !== allDevelopers) {
+                    interaction.reply({ content: "This command is only for developers", ephemeral: true });
+                    console.log(`Command ${interaction.commandName} is only for developers`);
                 } else {
-                    command.run(interaction);
+                    command.run(Discord, interaction);
                 }
             } else {
                 console.log(`Command ${interaction.commandName} not found`);
             }
         }
     }
-}
+};
