@@ -1,8 +1,10 @@
 module.exports = {
-    Version: "1.0.1",
+    Version: "1.0.2",
     MainDeveloper: ["1023706648193290292", "895315953401884722"],
-    Main_GuildChannel: {
-        ChannelGuildRemove: "1173817667220688907",
-        ChannelGuildAdd: "1173817652855197797",
+    Main_Guild: {
+        ChannelLogs: {
+            ChannelGuildRemove: "1173817667220688907",
+            ChannelGuildAdd: "1173817652855197797",
+        }
     }
 }
