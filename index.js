@@ -4,6 +4,7 @@ const client = new Client({
 })
 const loadEvents = require("./interfaces/IEvents");
 const loadCommands = require("./interfaces/ICommand");
+const updateChannelStats = require("./utils/functions/updateStats");
 require('dotenv').config();
 
 client.commands = new Collection();
@@ -14,3 +15,7 @@ client.commands = new Collection();
     await loadCommands(client);
     await client.login(process.env.TOKEN);
 })();
+
+setInterval(() => {
+    updateChannelStats(client);
+}, 1000 * 60 * 30)
