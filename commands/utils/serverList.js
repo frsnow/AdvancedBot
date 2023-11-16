@@ -4,7 +4,8 @@ const { ButtonStyle } = require("discord.js");
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('serverlist')
-        .setDescription('Get the server count of the bot'),
+        .setDescription('Get the server count of the bot')
+        .setDMPermission(false),
 
     developerCommand: true,
 

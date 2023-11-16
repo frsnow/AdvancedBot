@@ -5,6 +5,7 @@ module.exports = {
         .setName("ban")
         .setDescription("Ban a user from the server")
         .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
+        .setDMPermission(false)
         .addUserOption(option => option.setName("user").setDescription("The user to ban").setRequired(true))
         .addStringOption(option => option.setName("reason").setDescription("The reason for banning the user")),
 
