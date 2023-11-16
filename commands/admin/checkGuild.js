@@ -14,7 +14,14 @@ module.exports = {
 
         run: async (Discord, interaction) => {
             let guild_id = interaction.options.getString('guild_id');
-            let guild = await interaction.client.guilds.fetch(guild_id);
+            let guild;
+
+            try {
+                guild = await interaction.client.guilds.fetch(guild_id);
+            } catch (error) {
+                return interaction.reply({ content: `The guild with the id \`${guild_id}\` doesn't exist or the bot is not in it.`, ephemeral: true });
+            }
+
             let guild_owner = await guild.fetchOwner();
 
 
