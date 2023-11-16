@@ -9,7 +9,10 @@ module.exports = {
     inDevelopment: false,
     developerCommand: false,
 
-    async run (Discord, interaction) {
-        await interaction.reply("The bot have a ping of " + interaction.client.ws.ping + "ms!");
+    run: async (Discord, interaction) => {
+        const time = Date.now();
+        await interaction.reply({ content: "Pinging...", fetchReply: true });
+
+        interaction.editReply({ content: `Pong! (${Date.now() - time}ms)` });
     }
 }
