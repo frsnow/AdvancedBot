@@ -17,7 +17,7 @@ module.exports = {
                     }
                 }
                 
-                if (command.inDevelopment && interaction.user.id !== allDevelopers) {
+                if (command.inwork && interaction.user.id !== allDevelopers) {
                     interaction.reply({ content: "This command is in development", ephemeral: true });
                     console.log(`Command ${interaction.commandName} is in development`);
                 } else if (command.developerCommand && interaction.user.id !== allDevelopers) {
