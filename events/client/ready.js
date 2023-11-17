@@ -1,5 +1,6 @@
 const updateChannelStats = require("../../utils/functions/updateStats");
 const config = require("../../utils/config");
+const createUptime = require("../../utils/functions/createUptime");
 require("colors");
 
 module.exports = {
@@ -23,5 +24,6 @@ module.exports = {
         console.log("-".repeat(messageReady.length).grey)
         console.log("[LOGS] ".blue +messageReady);
         updateChannelStats(client);
+        createUptime(client);
     }
 }
