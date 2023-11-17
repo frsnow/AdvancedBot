@@ -6,6 +6,8 @@ async function updateChannelStats(client) {
     
     serverChannel.setName(`Total Servers: ${client.guilds.cache.size}`);
     memberChannel.setName(`Total Members: ${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0)}`);
+
+    console.log(`[UPDATE]`.yellow+` Updated channel stats [${new Date().toLocaleString()}]`.grey)
 }
 
 module.exports = updateChannelStats;
