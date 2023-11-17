@@ -6,7 +6,7 @@ module.exports = {
         .setDescription('Replies with Pong!')
         .setDMPermission(true),
 
-    inDevelopment: false,
+    inwork: false,
     developerCommand: false,
 
     run: async (Discord, interaction) => {

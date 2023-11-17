@@ -9,7 +9,7 @@ module.exports = {
         .addUserOption(option => option.setName("user").setDescription("The user to ban").setRequired(true))
         .addStringOption(option => option.setName("reason").setDescription("The reason for banning the user")),
 
-        inDevelopment: true,
+        inwork: true,
     run: async (Discord, interaction) => {
         const { channel, options } = interaction;
 
